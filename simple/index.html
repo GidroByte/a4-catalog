@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Кодировка документа: нужна для корректного отображения русского текста. -->
+    <meta charset="utf-8">
+    <!-- Корректный масштаб при открытии страницы на экранах разной ширины. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Текст на вкладке браузера и имя документа при сохранении PDF. -->
+    <title>Минимальный пример печатного каталога</title>
+    <!-- Стили встроены в файл, чтобы пример можно было открыть без дополнительных файлов. -->
+    <style>
+        :root {
+            --accent-color: #b9cfe9;
+            --light-bg: #e8edf5;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #edf1f5;
+            color: #2c3e50;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Лист каталога с точными размерами A4 и внутренними полями. */
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10px auto;
+            padding: 20mm;
+            background: #fff;
+            box-shadow: 0 0 10px rgb(0 0 0 / 12%);
+        }
+
+        /* Настоящая HTML-таблица: данные остаются структурированными и легко редактируются. */
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            border: 1px solid var(--light-bg);
+            background: #fff;
+            font-size: 7pt;
+            line-height: 1;
+            color: var(--text-dark);
+        }
+
+        .product-table th,
+        .product-table td {
+            padding: 2px 3px;
+            border: 1px solid var(--light-bg);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .product-table th {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .product-table tbody tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        /* Правила применяются при печати или сохранении страницы в PDF. */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            html,
+            body,
+            .a4-page {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            .a4-page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Сюда можно вставлять ещё страницы -->
+    <!-- Начало страницы A4 -->
+    <main class="a4-page">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Модель</th>
+                    <th>Интерфейсы</th>
+                    <th>Применение</th>
+                    <th>Артикул</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CPU 1510SP-1 PN</td>
+                    <td>PROFINET</td>
+                    <td>Стандартные задачи автоматизации</td>
+                    <td>6ES7510-1DJ01-0AB0</td>
+                </tr>
+                <tr>
+                    <td>CPU 1512SP-1 PN</td>
+                    <td>PROFINET</td>
+                    <td>Более производительные станции</td>
+                    <td>6ES7512-1DK01-0AB0</td>
+                </tr>
+                <tr>
+                    <td>CPU 1515SP PC2</td>
+                    <td>PROFINET, Industrial Ethernet</td>
+                    <td>Периферия и задачи на базе ПК</td>
+                    <td>6ES7677-2DB42-0GB0</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <!-- Конец страницы A4 -->
+    <!-- Сюда можно вставлять ещё страницы -->
+</body>
+
+</html>
