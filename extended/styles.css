@@ -1,0 +1,160 @@
+/* Локальное семейство Calibri: файлы лежат в папке fonts рядом со стилями. */
+@font-face {
+    font-family: "Calibri";
+    src: url("fonts/Calibri.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Calibri";
+    src: url("fonts/Calibri-light.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Calibri";
+    src: url("fonts/Calibri-bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+:root {
+    /* Общая палитра: достаточно изменить значения здесь, чтобы обновить весь макет. */
+    --blue: #173f6f;
+    --line: #e8edf5;
+    --table-header: #b9cfe9;
+    --text: #2c3e50;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #edf1f5;
+    color: var(--text);
+    font-family: "Calibri", Arial, sans-serif;
+}
+
+/* Лист каталога с точными размерами A4 и внутренними полями. */
+.a4-page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 10px auto;
+    padding: 20mm;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 12%);
+}
+
+.page-header {
+    margin-bottom: 9mm;
+}
+
+.eyebrow {
+    margin: 0 0 2mm;
+    color: var(--blue);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+h1,
+h2 {
+    margin: 0;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 22pt;
+}
+
+h2 {
+    margin-bottom: 3mm;
+    font-size: 13pt;
+}
+
+.lead {
+    margin: 2mm 0 0;
+    font-size: 10pt;
+    line-height: 1.3;
+}
+
+/* Таблица */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+    font-size: 7pt;
+    line-height: 1;
+    font-weight: 350;
+    color: var(--text);
+}
+
+.product-table + h2 {
+    margin-top: 6mm;
+}
+
+.product-table th,
+.product-table td {
+    padding: 2px 3px;
+    border: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.product-table th {
+    background: var(--table-header);
+    border-color: var(--table-header);
+    color: var(--text);
+    font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background: var(--line);
+}
+
+/* Повторяющаяся навигация внизу страницы. */
+.page-footer {
+    position: absolute;
+    right: 20mm;
+    bottom: 4mm;
+    left: 20mm;
+    display: flex;
+    justify-content: space-between;
+    color: var(--blue);
+    font-size: 8pt;
+    font-weight: 700;
+}
+
+/* Правила, которые браузер применяет только при печати или экспорте в PDF. */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    html,
+    body,
+    .a4-page {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .a4-page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+    }
+
+}

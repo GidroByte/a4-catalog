@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Кодировка документа: нужна для корректного отображения русского текста. -->
+    <meta charset="utf-8">
+    <!-- Корректный масштаб при открытии страницы на экранах разной ширины. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Текст на вкладке браузера и имя документа при сохранении PDF. -->
+    <title>Расширенный пример печатного каталога</title>
+    <!-- Отдельный файл стилей: в нём подключаются шрифты и задаётся оформление страницы. -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Начало страницы A4 -->
+    <main class="a4-page">
+        <header class="page-header">
+            <p class="eyebrow">SIMATIC ET 200SP</p>
+            <h1>Центральные процессоры</h1>
+            <p class="lead">Краткая таблица помогает быстро сопоставить производительность, интерфейсы и артикулы.</p>
+        </header>
+
+        <section aria-labelledby="cpu-table-title">
+            <h2 id="cpu-table-title">Таблица выбора</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Модель</th>
+                        <th>Интерфейсы</th>
+                        <th>Применение</th>
+                        <th>Артикул</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CPU 1510SP-1 PN</td>
+                        <td>PROFINET</td>
+                        <td>Стандартные задачи автоматизации</td>
+                        <td>6ES7510-1DJ01-0AB0</td>
+                    </tr>
+                    <tr>
+                        <td>CPU 1512SP-1 PN</td>
+                        <td>PROFINET</td>
+                        <td>Более производительные станции</td>
+                        <td>6ES7512-1DK01-0AB0</td>
+                    </tr>
+                    <tr>
+                        <td>CPU 1515SP PC2</td>
+                        <td>PROFINET, Industrial Ethernet</td>
+                        <td>Периферия и задачи на базе ПК</td>
+                        <td>6ES7677-2DB42-0GB0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Схема подключения</h2>
+            <img src="img/schem.svg" alt="Пример схемы подключения" style="display: block; width: 100%; height: auto;">
+        </section>
+
+        <footer class="page-footer">
+            <span>SIMATIC ET 200SP</span>
+            <span class="page-number">1</span>
+        </footer>
+    </main>
+    <!-- Конец страницы A4 -->
+</body>
+
+</html>
